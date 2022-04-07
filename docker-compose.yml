@@ -1,0 +1,23 @@
+version: "3"
+services:
+  mongodb:
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: testPassword
+    container_name: navi_compose_mongodb
+    ports:
+      - 27017
+
+  navi_auth:
+    depends_on:
+      mongodb:
+        condition: service_started
+    build:
+      context: ./Navi-Authentication/.
+      dockerfile: ./NaviAuth/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://+
+    volumes:
+      - ./configurations/auth_config.json:/app/publish/appsettings.Development.json

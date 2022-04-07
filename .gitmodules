@@ -1,0 +1,3 @@
+[submodule "Navi-Authentication"]
+	path = Navi-Authentication
+	url = git@github.com:Navi-Cloud/Navi-Authentication.git

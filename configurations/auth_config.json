@@ -1,0 +1,12 @@
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "MongoSection": {
+    "ConnectionString": "mongodb://root:testPassword@mongodb:27017",
+    "DatabaseName": "compose-development"
+  }
+}
