@@ -1,3 +1,6 @@
 [submodule "Navi-Authentication"]
 	path = Navi-Authentication
 	url = git@github.com:Navi-Cloud/Navi-Authentication.git
+[submodule "Navi-OpenAPI"]
+	path = Navi-OpenAPI
+	url = git@github.com:Navi-Cloud/Navi-OpenAPI.git

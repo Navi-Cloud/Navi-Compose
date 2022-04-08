@@ -33,12 +33,26 @@ services:
       - ./configurations/nginx/test.conf:/etc/nginx/conf.d/default.conf
       - ./configurations/nginx/location-global.conf:/etc/nginx/conf.d/location-global.conf
 
+  swagger_combiner:
+    build:
+      context: ./Navi-OpenAPI
+      dockerfile: ./build/Dockerfile
+    volumes:
+      - ./Navi-OpenAPI/out:/swagger/out
+
   swagger:
     image: swaggerapi/swagger-ui:latest
+    depends_on:
+      swagger_combiner:
+        condition: service_completed_successfully
     environment:
-      URLS: '[
-        {url: "./NaviAuthDefinition.yaml", name: "Navi Auth Service"}
-        ]'
+      URLS: |
+        [
+          {
+            "url": "./definition/auth-bundle.yaml",
+            "name": "Navi Authentication Microservice"
+          }
+        ]
       BASE_URL: /swagger
     volumes:
-      - ./Navi-Authentication/NaviAuth/Definition/NaviAuthDefinition.yaml:/usr/share/nginx/html/NaviAuthDefinition.yaml
+      - ./Navi-OpenAPI/out:/usr/share/nginx/html/definition
