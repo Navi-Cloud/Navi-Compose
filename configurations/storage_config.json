@@ -1,0 +1,15 @@
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "ConnectionStrings": {
+    "MongoConnection": "mongodb://root:testPassword@mongodb:27017",
+    "Navi-Auth": "http://navi_auth"
+  },
+  "MongoSection": {
+    "DatabaseName": "compose-development"
+  }
+}

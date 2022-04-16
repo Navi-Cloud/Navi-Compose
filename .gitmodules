@@ -4,3 +4,6 @@
 [submodule "Navi-OpenAPI"]
 	path = Navi-OpenAPI
 	url = git@github.com:Navi-Cloud/Navi-OpenAPI.git
+[submodule "Navi-Storage"]
+	path = Navi-Storage
+	url = git@github.com:Navi-Cloud/Navi-Storage.git
